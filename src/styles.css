@@ -3,3 +3,27 @@
 @media(max-width:1120px){.sidebar{width:210px}.main{margin-left:210px}.app-footer{margin-left:210px}.workout-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.workout-visual{height:95px}.hero-art{width:200px}.welcome{padding:30px}.training-grid{grid-template-columns:minmax(0,1fr) minmax(260px,.8fr)}}
 @media(max-width:760px){.sidebar{display:none}.main{margin-left:0;padding-bottom:72px}.topbar{height:61px;padding:0 18px}.mobile-brand{display:flex;align-items:center;gap:8px}.mobile-brand .brand-mark{width:30px;height:30px;border-radius:9px}.mobile-brand b{font-family:'Space Grotesk';font-size:15px;letter-spacing:1.5px}.breadcrumb{display:none}.top-right{font-size:8px}.top-right .avatar{display:none}.content{padding:22px 16px 22px}.welcome{padding:25px 22px;min-height:300px;align-items:flex-start}.welcome>div:first-child{max-width:100%}.welcome h1{font-size:35px;margin-top:16px}.welcome p{font-size:12px;max-width:290px}.hero-art{position:absolute;right:-68px;bottom:-35px;width:185px;height:145px;opacity:.26}.hero-number{font-size:60px}.hero-tag{display:none}.primary-btn{font-size:11px;padding:12px 13px}.section-head{margin-top:28px}.section-head h2{font-size:21px}.week-pill{font-size:9px;padding:7px 8px}.stats-grid{gap:8px}.stat-card{padding:12px 10px;min-height:125px}.stat-icon{width:29px;height:29px;margin-bottom:12px}.stat-card>span{font-size:7px;letter-spacing:.5px;line-height:1.4;min-height:20px}.stat-card strong{font-size:25px}.stat-card strong i{font-size:8px;display:block;margin-top:2px}.stat-card small{font-size:9px;line-height:1.5}.workout-grid{gap:9px}.workout-visual{height:82px}.workout-info{padding:12px 10px 10px}.card-meta{font-size:7px}.workout-info h3{font-size:12px}.workout-info p{font-size:9px;margin-bottom:12px}.card-footer{font-size:8px}.tip-banner{padding:14px;gap:10px;margin-top:20px}.tip-banner p{font-size:10px}.mobile-nav{position:fixed;display:flex;inset:auto 0 0;background:#151815;border-top:1px solid var(--line);z-index:10;justify-content:space-around;padding:8px 8px max(8px,env(safe-area-inset-bottom))}.mobile-nav button{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;color:#8e9888;background:transparent;border:0;padding:5px;font-size:9px}.mobile-nav button.active{color:var(--lime)}.app-footer{margin-left:0;padding-bottom:88px}.page-title{margin-top:7px}.page-title h1{font-size:34px}.page-title p{font-size:12px}.workout-layout{grid-template-columns:1fr}.day-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.day-row{padding:10px 8px;gap:8px}.day-badge{width:32px;height:32px;font-size:14px}.day-copy b{font-size:10px}.day-copy small{font-size:8px;line-height:1.4}.day-row>svg{width:14px}.detail-banner{padding:20px;min-height:130px}.detail-banner h2{font-size:23px}.detail-body{padding:17px 14px}.detail-summary{gap:10px;font-size:9px}.exercise-row{gap:8px}.exercise-reps{font-size:8px;max-width:100px}.training-heading h1{font-size:31px}.training-grid{grid-template-columns:1fr}.sketch{height:200px}.exercise-instructions{padding:18px}.session-card{padding:17px}.progress-hero{padding:22px}.progress-hero strong{font-size:44px}.progress-circle{width:95px;height:95px}.progress-days{padding:4px 12px}.progress-day{gap:9px}.progress-day b{font-size:10px}.status-pill{font-size:8px;padding:5px 6px}.toast{left:12px;right:12px;bottom:75px;justify-content:flex-start}.back-link{margin-bottom:18px}}
 @media(max-width:390px){.top-right{letter-spacing:.3px}.welcome h1{font-size:31px}.welcome{padding:22px 17px}.week-pill{max-width:135px}.stat-card strong{font-size:22px}.day-row>svg{display:none}.day-copy b{font-size:9px}}
+
+/* FORMA v2: exercício ilustrado com movimento controlável */
+.sketch{height:260px;gap:8px;padding:16px 18px 12px;box-sizing:border-box}
+.sketch svg{width:min(100%,390px);height:170px;overflow:visible}
+.figure{transform-box:fill-box;transform-origin:center;animation:forma-move 2.2s ease-in-out infinite alternate}
+.figure.pose-b{animation-name:forma-move-reverse}
+.sketch:has(.figure) .figure{transition:transform .65s ease-in-out}
+.sketch:has(.figure) .figure.pose-a{transform:translateY(0)}
+.sketch:has(.figure) .figure.pose-b{transform:translateY(4px)}
+.sketch-controls{width:100%;max-width:390px;display:flex;align-items:center;justify-content:space-between;gap:12px;color:#9da995;font-size:10px}
+.sketch-controls button{border:1px solid #435239;background:#20291c;color:var(--lime);border-radius:8px;padding:7px 11px;font-size:10px;font-weight:700;cursor:pointer}
+.sketch-controls button:hover{background:#2b3922}
+@keyframes forma-move{from{opacity:.92}to{opacity:1}}
+@keyframes forma-move-reverse{from{opacity:1}to{opacity:.92}}
+@media(prefers-reduced-motion:reduce){.figure,.figure.pose-b{animation:none!important;transition:none!important}.progress-track span{transition:none}}
+@media(max-width:760px){.sketch{height:230px;padding:12px}.sketch svg{height:155px}.sketch-controls{font-size:9px}}
+.figure-arms,.figure-legs,.figure-body{transform-box:fill-box;transform-origin:center;transition:transform .9s ease-in-out}
+.figure.pose-a .figure-arms{transform:rotate(-2deg)}
+.figure.pose-b .figure-arms{transform:rotate(5deg)}
+.figure.pose-a .figure-legs{transform:translateY(0)}
+.figure.pose-b .figure-legs{transform:translateY(2px)}
+.figure.pose-a .figure-body{transform:translateY(0)}
+.figure.pose-b .figure-body{transform:translateY(2px)}
+@media(prefers-reduced-motion:reduce){.figure-arms,.figure-legs,.figure-body{transition:none!important}}
